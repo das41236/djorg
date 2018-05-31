@@ -33,6 +33,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast = Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    'notes',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,3 +122,12 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Django REST framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        # Use Django's standard django.contrib.auth permission,
+        # or allow read-only access for unauthenticated users
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ]
+}
