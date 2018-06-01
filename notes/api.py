@@ -18,11 +18,11 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     queryset = Note.objects.all()
 
-#     def get_queryset(self):
-#         user = self.request.user
+    def get_queryset(self):
+        user = self.request.user
 #         #import pdb; pdb.set_trace()
 
-#         if user.is_anonymous:
-#             return Note.objects.none()
-#         else:
-#             return Note.objects.filter(user=user)
+        if user.is_anonymous:
+            return Note.objects.none()
+        else:
+            return Note.objects.filter(user=user)
