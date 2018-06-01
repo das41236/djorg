@@ -35,6 +35,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast = Csv())
 INSTALLED_APPS = [
     'notes',
     'rest_framework',
+    'graphene_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,4 +131,9 @@ REST_FRAMEWORK = {
         # or allow read-only access for unauthenticated users
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ]
+}
+
+# Graphene
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema' # dir.filename.varname
 }
